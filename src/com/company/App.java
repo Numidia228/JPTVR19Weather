@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Random;
+import java.util.Scanner;
 
 class App {
     public void run() {
@@ -23,11 +24,21 @@ class App {
         System.out.println();
         System.out.println("Решение:");
         System.out.println("Создаём заполняем и выводим зубчатый массив с погодой.");
+        System.out.println();
         Random random = new Random();
         int min = -30;
         int max = 30;
         int n = 0;
         int [][] tempInYear = new int [12][];
+        System.out.println();
+        for (int i = 1; i < 32; i++) {
+            System.out.printf("%4d", i);
+        }
+        System.out.println();
+        for (int i = 1; i < 32; i++) {
+            System.out.printf("-------");
+        }
+        System.out.println();
         for (int i = 0; i < 12; i++) {
             switch (i) {
                 case 0: min = -30; max = 0; n = 31; break;
@@ -47,8 +58,16 @@ class App {
             for (int j = 0; j < tempInYear[i].length; j++) {
                 tempInYear[i][j] = random.nextInt(max - min + 1) + min;
                 System.out.printf("%4d", tempInYear[i][j]);
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите месяц: ");
+        int userMonth = scanner.nextInt();
+        System.out.println("Введите день: ");
+        int userDay = scanner.nextInt();
+        System.out.printf("В этот день было %3d гадусов%n", tempInYear[userMonth - 1][userDay - 1]);
     }
 }
+
